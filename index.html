@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vercel Number API - Test Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 { color: #333; }
+        .form-group { margin-bottom: 20px; }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .response-area {
+            margin-top: 30px;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .key-note {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔢 Vercel Number API Tester</h1>
+        <div class="key-note">
+            <strong>Note:</strong> Default key is 'aditya' or the one you set in Vercel Environment Variables.
+        </div>
+
+        <div class="form-group">
+            <label>🔑 API Key:</label>
+            <input type="text" id="apiKey" value="haxkerz">
+        </div>
+
+        <div class="form-group">
+            <label>📞 Phone Number:</label>
+            <input type="text" id="phoneNumber" value="9876543210" maxlength="10">
+        </div>
+
+        <button onclick="testAPI()">🚀 Test API</button>
+
+        <h3>Response:</h3>
+        <div class="response-area" id="response">Click "Test API" to see response...</div>
+    </div>
+
+    <script>
+        const apiEndpoint = window.location.origin + '/api/number';
+
+        async function testAPI() {
+            const apiKey = document.getElementById('apiKey').value;
+            const number = document.getElementById('phoneNumber').value;
+            const responseDiv = document.getElementById('response');
+
+            try {
+                const response = await fetch(`${apiEndpoint}?number=${number}`, {
+                    headers: { 'X-API-Key': apiKey }
+                });
+                
+                const data = await response.json();
+                responseDiv.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                responseDiv.textContent = JSON.stringify({ error: error.message }, null, 2);
+            }
+        }
+    </script>
+</body>
+</html>

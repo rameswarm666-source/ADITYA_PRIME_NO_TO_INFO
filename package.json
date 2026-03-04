@@ -1,0 +1,16 @@
+{
+  "name": "vercel-number-api",
+  "version": "2.0.0",
+  "description": "Vercel API with Key Validation for Number Lookup",
+  "main": "api/number.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "node-fetch": "^2.7.0"
+  },
+  "keywords": ["vercel", "api", "serverless", "number-lookup"],
+  "author": "Your Name",
+  "license": "MIT"
+}

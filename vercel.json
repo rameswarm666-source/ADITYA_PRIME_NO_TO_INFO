@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "functions": {
+    "api/number.js": {
+      "maxDuration": 10
+    }
+  },
+  "env": {
+    "API_KEY": "@api-key"
+  }
+}
