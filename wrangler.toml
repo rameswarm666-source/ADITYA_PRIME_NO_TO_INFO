@@ -1,0 +1,17 @@
+name = "number-api"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+
+# Logging enable karne ke liye (optional)
+[observability]
+enabled = true
+
+# Environment variables ke liye (optional)
+# [vars]
+# API_KEY = "your-api-key"
+
+# Cron triggers ke liye (optional)
+# [triggers]
+# crons = ["0 0 * * *"]
